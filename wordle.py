@@ -26,7 +26,9 @@ https://norvig.com/ngrams/
 
 """
 
+
 import argparse
+import contextlib
 import operator
 import re
 import string
@@ -197,19 +199,15 @@ def solve():
         for choice, letter in zip(response, word):
             response_dict[choice][letter].add(word.index(letter))
         for location, letter in enumerate(response):
-            if letter == "G":
+            if letter == "?":
+                for vector in word_vector:
+                    with contextlib.suppress(KeyError):
+                        vector.remove(word[location])
+            elif letter == "G":
                 word_vector[location] = {word[location]}
             elif letter == "Y":
-                try:
+                with contextlib.suppress(KeyError):
                     word_vector[location].remove(word[location])
-                except KeyError:
-                    pass
-            elif letter == "?":
-                for vector in word_vector:
-                    try:
-                        vector.remove(word[location])
-                    except KeyError:
-                        pass
         past = possible_words.copy()
         possible_words = match(possible_words, response_dict)
 
