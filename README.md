@@ -26,6 +26,21 @@ $ ./wordle
 
 ```
 
+## Hack
+
+The algorithm that wordle uses is very smart in that it picks words with multiple options to chose.  Words like arise, raise, et cetra have a very high character level probability. The algorithm seems to know these high probability words and picks words that are not the five characters a, e, i, r, s.
+
+If you're logged into wordle and close to being incorrect 6 times use another browser to get a non-logged in [wordle](https://www.nytimes.com/games/wordle/index.html) window.  Using a Chrome browser as your primary logged in account you can use any of these other browsers to guess non-logged in choices.  
+
+Non-Chrome browsers:
+
+- [Opera](https://www.opera.com/)
+- [Safari](https://www.apple.com/safari/)
+- [Tor](https://www.torproject.org/download/)
+- [Brave](https://brave.com/)
+- [Edge](https://www.microsoft.com/en-us/edge/download)
+
+The reason you'll need another browser is because [wordle](https://www.nytimes.com/games/wordle/index.html) uses [cookies](https://www.w3schools.com/js/js_cookies.asp) to cache your guesses.  
 
 ## Credits
 
