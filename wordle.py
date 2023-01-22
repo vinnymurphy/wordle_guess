@@ -60,7 +60,6 @@ def sort_by_word_commonality(words: list) -> list:
         sort_by = operator.itemgetter(2, 1)
     else:
         sort_by = operator.itemgetter(1, 2)
-        #    (word, calculate_word_commonality(word), 0.0)
     return sorted(
         [
             (
@@ -127,10 +126,11 @@ def green_choices(words, green):
     green is a dictionary of letters and exact locations.
 
     """
+    new_words = words.copy()
     for letter in green:
         for location in green[letter]:
             here_i_am = int(location)
-            new_words = [w for w in words if w[here_i_am] == letter]
+            new_words = [w for w in new_words if w[here_i_am] == letter]
     return new_words
 
 
@@ -141,10 +141,11 @@ def yellow_choices(words, yellow):
     yellow is a dictionary of letters and inexact locations.
 
     """
+    new_words = words.copy()
     for letter in yellow:
         for location in yellow[letter]:
             here_i_am = int(location)
-            new_words = [w for w in words if w[here_i_am] != letter]
+            new_words = [w for w in new_words if w[here_i_am] != letter]
     return new_words
 
 

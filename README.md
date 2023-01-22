@@ -34,11 +34,11 @@ If you're logged into wordle and close to being incorrect 6 times use another br
 
 Non-Chrome browsers:
 
+- [Brave](https://brave.com/)
+- [Edge](https://www.microsoft.com/en-us/edge/download)
 - [Opera](https://www.opera.com/)
 - [Safari](https://www.apple.com/safari/)
 - [Tor](https://www.torproject.org/download/)
-- [Brave](https://brave.com/)
-- [Edge](https://www.microsoft.com/en-us/edge/download)
 
 The reason you'll need another browser is because [wordle](https://www.nytimes.com/games/wordle/index.html) uses [cookies](https://www.w3schools.com/js/js_cookies.asp) to cache your guesses.  
 
