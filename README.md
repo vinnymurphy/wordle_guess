@@ -49,6 +49,10 @@ This software uses the following open source packages:
 - [Wordle Solving](https://www.inspiredpython.com/article/solving-wordle-puzzles-with-basic-python)
 - [Natural Language Corpus Data](https://norvig.com/ngrams/)
 
+The folks at [Sourcery](https://sourcery.ai/) are magicians when fixing and cleaning up code. A special thank you to Brendan and Tim for this very special software application.
+
+- [Google Python Style Guide](https://sourcery.ai/blog/gpsg-sourcery-core/)
+
 
 ## License
 
