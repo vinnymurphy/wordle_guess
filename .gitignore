@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Getting https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt and writing to ./words_alpha.text
+words_alpha.text
+
 # Distribution / packaging
 .Python
 build/

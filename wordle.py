@@ -7,8 +7,8 @@
 Author:   Vinny Murphy
 Created:  Sunday 2022/03/13
 
-Some code taken from https://www.inspiredpython.com/article/
-                     solving-wordle-puzzles-with-basic-python
+Some code taken from https://www.inspiredpython.com/article/\
+solving-wordle-puzzles-with-basic-python
 
 We look at all the words in the dictionary and determine what letters
 are the most used.  An issue with using the words from the unix is
@@ -30,15 +30,17 @@ https://norvig.com/ngrams/
 import argparse
 import contextlib
 import operator
+import os
 import re
 import string
 import sys
+import requests
 from collections import Counter, defaultdict
 from itertools import chain
 from pathlib import Path
 
 ALLOWABLE_CHARACTERS = set(string.ascii_letters)
-ALLOWED_ATTEMPTS = 6
+ALLOWED_ATTEMPTS = 16
 WORD_LENGTH = 5
 
 
@@ -241,9 +243,19 @@ def trim_to_size(word_list):
     }
 
 
+
+
+
 def get_words():
     """Get the words from a file"""
-    dictionary = "/usr/share/dict/words"
+    dictionary = './words_alpha.text'
+    if not os.path.isfile(dictionary):
+        url = ('https://raw.githubusercontent.com/dwyl/english-words/master/'
+               'words_alpha.txt')
+        print(f"Getting {url} and writing to {dictionary}")
+        response = requests.get(url, timeout=5)
+        with open(dictionary, 'w') as writer:
+            writer.write(response.text)
     # pylint: disable=unspecified-encoding
     return trim_to_size(Path(dictionary).read_text().splitlines())
 
