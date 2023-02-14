@@ -34,10 +34,11 @@ import os
 import re
 import string
 import sys
-import requests
 from collections import Counter, defaultdict
 from itertools import chain
 from pathlib import Path
+
+import requests
 
 ALLOWABLE_CHARACTERS = set(string.ascii_letters)
 ALLOWED_ATTEMPTS = 16
@@ -82,7 +83,7 @@ def display_word_table(word_commonalities):
     generate a sorted (highest-to-lowest) list of tuples, with each tuple
     containing the word and the calculated score for that word. The sorting
     key is the score."""
-    for (word, freq, probility) in word_commonalities:
+    for word, freq, probility in word_commonalities:
         print(f"{word:<10} | {freq:<5.2} | {probility:<.4E}")
 
 
@@ -243,18 +244,17 @@ def trim_to_size(word_list):
     }
 
 
-
-
-
 def get_words():
     """Get the words from a file"""
-    dictionary = './words_alpha.text'
+    dictionary = "./words_alpha.text"
     if not os.path.isfile(dictionary):
-        url = ('https://raw.githubusercontent.com/dwyl/english-words/master/'
-               'words_alpha.txt')
+        url = (
+            "https://raw.githubusercontent.com/dwyl/english-words/master/"
+            "words_alpha.txt"
+        )
         print(f"Getting {url} and writing to {dictionary}")
         response = requests.get(url, timeout=5)
-        with open(dictionary, 'w') as writer:
+        with open(dictionary, "w", encoding="utf-8") as writer:
             writer.write(response.text)
     # pylint: disable=unspecified-encoding
     return trim_to_size(Path(dictionary).read_text().splitlines())
