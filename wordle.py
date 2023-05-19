@@ -41,7 +41,7 @@ from pathlib import Path
 import requests
 
 ALLOWABLE_CHARACTERS = set(string.ascii_letters)
-ALLOWED_ATTEMPTS = 5
+ALLOWED_ATTEMPTS = 15
 WORD_LENGTH = 5
 
 
